@@ -1,53 +1,203 @@
 ---
+const navigation = [
+  { name: "About", href: "#about" },
+  { name: "Understanding IBD", href: "#ibd" },
+  { name: "Resources", href: "#resources" },
+  { name: "Get Involved", href: "#involved" },
+  { name: "Contact", href: "#contact" }
+];
 ---
 
-<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Digestive Harmony | Advancing Hope for IBD</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <main>
-      <section>
-        <p>Digestive Harmony</p>
-        <h1>Advancing Hope for IBD</h1>
-        <p>
-          Supporting individuals and families affected by Crohn's disease and
-          Ulcerative Colitis through education, advocacy, community, and research.
-        </p>
-        <a href="#mission">Learn More</a>
-        <a href="#get-involved">Get Involved</a>
-      </section>
+  <title>Digestive Harmony</title>
 
-      <section id="mission">
-        <h2>Our Mission</h2>
-        <p>
-          To improve the quality of life for people affected by inflammatory bowel
-          disease by advancing education, fostering community, advocating for patients,
-          and supporting research.
-        </p>
-      </section>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-      <section>
-        <h2>What We Do</h2>
-        <ul>
-          <li>Patient Support</li>
-          <li>Education</li>
-          <li>Research</li>
-          <li>Advocacy</li>
-        </ul>
-      </section>
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#F7FAFC;
+      color:#123;
+      line-height:1.6;
+    }
 
-      <section id="get-involved">
-        <h2>Get Involved</h2>
-        <p>
-          Join us as a volunteer, partner, donor, or advocate and help bring hope to
-          individuals and families living with IBD.
-        </p>
-      </section>
-    </main>
-  </body>
+    header{
+      background:white;
+      padding:18px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 12px rgba(0,0,0,.06);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .logo{
+      font-size:1.5rem;
+      font-weight:bold;
+      color:#005B70;
+    }
+
+    nav a{
+      margin-left:24px;
+      text-decoration:none;
+      color:#0F4C5C;
+      font-weight:600;
+    }
+
+    .hero{
+      min-height:88vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:60px 10%;
+      background:
+      linear-gradient(135deg,#E8F7F5,#FFFFFF,#F4F1FF);
+    }
+
+    .hero h1{
+      font-size:4rem;
+      margin-bottom:20px;
+      color:#0E4C68;
+    }
+
+    .hero p{
+      max-width:800px;
+      margin:auto;
+      font-size:1.25rem;
+      color:#455;
+    }
+
+    .buttons{
+      margin-top:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 34px;
+      border-radius:40px;
+      text-decoration:none;
+      margin:10px;
+      font-weight:bold;
+      transition:.3s;
+    }
+
+    .primary{
+      background:#0E7C86;
+      color:white;
+    }
+
+    .primary:hover{
+      background:#0A5F67;
+    }
+
+    .secondary{
+      border:2px solid #0E7C86;
+      color:#0E7C86;
+    }
+
+    .secondary:hover{
+      background:#0E7C86;
+      color:white;
+    }
+
+    section{
+      padding:90px 10%;
+    }
+
+    h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+      color:#0E4C68;
+    }
+
+    .mission{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🦋 Digestive Harmony
+</div>
+
+<nav>
+{
+navigation.map(item=>(
+<a href={item.href}>{item.name}</a>
+))
+}
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>Advancing Hope for IBD</h1>
+
+<p>
+
+Supporting individuals and families affected by
+Crohn's Disease and Ulcerative Colitis through
+education, advocacy, community and research.
+
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#about">
+Learn More
+</a>
+
+<a class="btn secondary" href="#involved">
+Get Involved
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="mission">
+
+<h2>Our Mission</h2>
+
+<p>
+
+Digestive Harmony is dedicated to empowering
+patients, caregivers and families through trusted
+education, meaningful community support,
+patient advocacy and research collaboration.
+
+</p>
+
+</div>
+
+</section>
+
+</body>
+
 </html>
