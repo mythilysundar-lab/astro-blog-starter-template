@@ -1,335 +1,297 @@
 ---
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Understanding IBD", href: "#ibd" },
-  { name: "Resources", href: "#resources" },
-  { name: "Get Involved", href: "#involved" },
-  { name: "Contact", href: "#contact" }
+const cards = [
+  ["❤️", "Patient Support", "Compassionate guidance for individuals and families navigating Crohn’s disease and Ulcerative Colitis."],
+  ["📚", "Education", "Clear, trusted resources that make IBD easier to understand and discuss with care teams."],
+  ["🤝", "Community", "Connection, encouragement, and shared strength for patients, caregivers, and advocates."],
+  ["🔬", "Research Hope", "Supporting awareness, discovery, and future initiatives that improve quality of life."]
 ];
 ---
 
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Digestive Harmony</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digestive Harmony | Advancing Hope for IBD</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:#f7fbfc;color:#16323f;line-height:1.6}
+    a{text-decoration:none;color:inherit}
 
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:#F7FAFC;
-      color:#123;
-      line-height:1.6;
-    }
+    .page{overflow:hidden}
 
     header{
-      background:white;
-      padding:18px 10%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow:0 2px 12px rgba(0,0,0,.06);
-      position:sticky;
-      top:0;
-      z-index:100;
+      position:sticky;top:0;z-index:10;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 8%;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(16px);
+      box-shadow:0 8px 30px rgba(12,70,88,.08);
     }
 
-    .logo{
-      font-size:1.5rem;
-      font-weight:bold;
-      color:#005B70;
-    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:#0b5f70;font-size:1.25rem}
+    .mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#b8efe7,#d9cef9);font-size:1.4rem}
 
-    nav a{
-      margin-left:24px;
-      text-decoration:none;
-      color:#0F4C5C;
-      font-weight:600;
-    }
+    nav{display:flex;gap:26px;font-size:.95rem;font-weight:700;color:#245265}
+    .nav-cta{padding:10px 18px;border-radius:999px;background:#0f7c86;color:white}
 
     .hero{
       min-height:88vh;
-      display:flex;
+      padding:80px 8% 70px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:60px;
       align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:60px 10%;
       background:
-      linear-gradient(135deg,#E8F7F5,#FFFFFF,#F4F1FF);
+        radial-gradient(circle at 12% 18%, rgba(183,239,231,.85), transparent 32%),
+        radial-gradient(circle at 82% 16%, rgba(216,206,249,.75), transparent 30%),
+        linear-gradient(135deg,#f3fbfb 0%,#ffffff 46%,#f4f1ff 100%);
     }
 
-    .hero h1{
-      font-size:4rem;
-      margin-bottom:20px;
-      color:#0E4C68;
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;margin-bottom:22px;padding:10px 16px;border-radius:999px;background:white;color:#0f7c86;font-weight:800;box-shadow:0 12px 30px rgba(16,91,110,.09)}
+    h1{font-size:clamp(3rem,6vw,6.1rem);line-height:.96;letter-spacing:-.05em;color:#0b4058;margin-bottom:26px}
+    .hero-text{font-size:1.25rem;max-width:680px;color:#456572;margin-bottom:34px}
+
+    .actions{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{padding:15px 26px;border-radius:999px;font-weight:800;box-shadow:0 14px 30px rgba(15,124,134,.16)}
+    .primary{background:#0f7c86;color:white}
+    .secondary{background:white;color:#0f7c86;border:2px solid rgba(15,124,134,.25)}
+
+    .visual{
+      position:relative;
+      min-height:520px;
+      border-radius:44px;
+      padding:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(232,249,246,.9));
+      box-shadow:0 35px 90px rgba(15,76,92,.18);
     }
 
-    .hero p{
-      max-width:800px;
-      margin:auto;
-      font-size:1.25rem;
-      color:#455;
+    .circle{
+      position:absolute;inset:28px;
+      border-radius:38px;
+      background:
+        linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.25)),
+        url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80");
+      background-size:cover;
+      background-position:center;
+      overflow:hidden;
     }
 
-    .buttons{
-      margin-top:40px;
+    .float-card{
+      position:absolute;
+      left:-22px;bottom:42px;
+      width:270px;
+      padding:22px;
+      border-radius:26px;
+      background:white;
+      box-shadow:0 25px 60px rgba(7,58,73,.2);
     }
 
-    .btn{
-      display:inline-block;
-      padding:16px 34px;
-      border-radius:40px;
-      text-decoration:none;
-      margin:10px;
-      font-weight:bold;
-      transition:.3s;
-    }
+    .float-card strong{display:block;color:#0b4058;font-size:1.1rem;margin-bottom:6px}
+    .float-card span{color:#617985;font-size:.95rem}
 
-    .primary{
-      background:#0E7C86;
-      color:white;
-    }
-
-    .primary:hover{
-      background:#0A5F67;
-    }
-
-    .secondary{
-      border:2px solid #0E7C86;
-      color:#0E7C86;
-    }
-
-    .secondary:hover{
-      background:#0E7C86;
-      color:white;
-    }
-
-    section{
-      padding:90px 10%;
-    }
-
-    h2{
+    .butterfly{
+      position:absolute;
+      right:32px;top:34px;
+      width:88px;height:88px;
+      border-radius:28px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#dccfff,#b8efe7);
+      box-shadow:0 18px 45px rgba(90,77,150,.18);
       font-size:2.5rem;
-      margin-bottom:20px;
-      color:#0E4C68;
     }
 
-    .mission{
-      max-width:900px;
-      margin:auto;
-      text-align:center;
+    section{padding:90px 8%}
+    .intro{text-align:center;max-width:900px;margin:auto}
+    .intro h2{font-size:clamp(2rem,4vw,3.4rem);color:#0b4058;line-height:1.08;margin-bottom:18px}
+    .intro p{font-size:1.12rem;color:#5b7480}
+
+    .mission-wrap{
+      margin-top:55px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
     }
 
+    .mission-box{
+      padding:30px;
+      border-radius:28px;
+      background:white;
+      box-shadow:0 20px 55px rgba(15,76,92,.08);
+      border:1px solid rgba(15,124,134,.08);
+    }
+
+    .mission-box h3{color:#0f7c86;margin-bottom:10px;font-size:1.35rem}
+    .mission-box p{color:#5f7680}
+
+    .services{background:#fff}
+    .cards{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .card{
+      padding:30px;
+      border-radius:30px;
+      background:linear-gradient(180deg,#ffffff,#f4fbfb);
+      border:1px solid rgba(15,124,134,.08);
+      box-shadow:0 20px 55px rgba(15,76,92,.08);
+      transition:.25s ease;
+    }
+    .card:hover{transform:translateY(-8px)}
+    .icon{font-size:2.35rem;margin-bottom:18px}
+    .card h3{color:#0b4058;margin-bottom:10px}
+    .card p{color:#5f7680;font-size:.98rem}
+
+    .cta{
+      margin:90px 8%;
+      padding:70px 8%;
+      border-radius:42px;
+      background:linear-gradient(135deg,#0b5f70,#8b7fd1);
+      color:white;
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:30px;
+      align-items:center;
+      box-shadow:0 30px 80px rgba(15,76,92,.22);
+    }
+
+    .cta h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.08;margin-bottom:18px}
+    .cta p{font-size:1.1rem;color:#eaf8f8}
+    .cta .btn{background:white;color:#0b5f70;text-align:center}
+
+    footer{
+      padding:36px 8%;
+      background:#092f42;
+      color:#d8eeee;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:900px){
+      header{align-items:flex-start;gap:14px;flex-direction:column}
+      nav{flex-wrap:wrap;gap:14px}
+      .hero{grid-template-columns:1fr;padding-top:55px}
+      .visual{min-height:430px}
+      .mission-wrap,.cards,.cta{grid-template-columns:1fr}
+      .cta{margin:50px 5%;padding:45px 7%}
+    }
   </style>
-
 </head>
 
 <body>
+  <div class="page">
+    <header>
+      <a class="brand" href="#">
+        <span class="mark">🦋</span>
+        <span>Digestive Harmony</span>
+      </a>
 
-<header>
+      <nav>
+        <a href="#mission">Mission</a>
+        <a href="#ibd">IBD Support</a>
+        <a href="#resources">Resources</a>
+        <a href="#involved" class="nav-cta">Get Involved</a>
+      </nav>
+    </header>
 
-<div class="logo">
-🦋 Digestive Harmony
-</div>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">🦋 Nonprofit for IBD awareness & support</div>
+          <h1>Advancing Hope for IBD</h1>
+          <p class="hero-text">
+            Digestive Harmony supports individuals and families affected by Crohn’s disease
+            and Ulcerative Colitis through education, advocacy, community, and research hope.
+          </p>
 
-<nav>
-{
-navigation.map(item=>(
-<a href={item.href}>{item.name}</a>
-))
-}
-</nav>
+          <div class="actions">
+            <a class="btn primary" href="#mission">Explore Our Mission</a>
+            <a class="btn secondary" href="#involved">Join the Movement</a>
+          </div>
+        </div>
 
-</header>
+        <div class="visual" aria-label="Community support image">
+          <div class="circle"></div>
+          <div class="butterfly">🦋</div>
+          <div class="float-card">
+            <strong>Hope, education, and community</strong>
+            <span>Helping families feel less alone on the IBD journey.</span>
+          </div>
+        </div>
+      </section>
 
-<section class="hero">
+      <section id="mission">
+        <div class="intro">
+          <h2>A compassionate home for IBD education and support.</h2>
+          <p>
+            We are building a trusted space where patients, caregivers, clinicians,
+            volunteers, and advocates can come together with clarity, dignity, and hope.
+          </p>
+        </div>
 
-<div>
+        <div class="mission-wrap">
+          <div class="mission-box">
+            <h3>Our Mission</h3>
+            <p>Improve quality of life for people affected by IBD through education, support, advocacy, and research awareness.</p>
+          </div>
+          <div class="mission-box">
+            <h3>Our Vision</h3>
+            <p>A future where every person living with IBD feels informed, supported, empowered, and never alone.</p>
+          </div>
+          <div class="mission-box">
+            <h3>Our Promise</h3>
+            <p>To communicate with compassion, respect patient experiences, and make health information easier to understand.</p>
+          </div>
+        </div>
+      </section>
 
-<h1>Advancing Hope for IBD</h1>
+      <section id="ibd" class="services">
+        <div class="intro">
+          <h2>What We Do</h2>
+          <p>
+            Digestive Harmony brings together awareness, education, community connection,
+            and research hope for Crohn’s disease and Ulcerative Colitis.
+          </p>
+        </div>
 
-<p>
+        <div class="cards">
+          {cards.map(([icon, title, text]) => (
+            <div class="card">
+              <div class="icon">{icon}</div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-Supporting individuals and families affected by
-Crohn's Disease and Ulcerative Colitis through
-education, advocacy, community and research.
+      <section id="resources">
+        <div class="intro">
+          <h2>Resources designed for real life.</h2>
+          <p>
+            Coming soon: practical guides for newly diagnosed patients, caregivers,
+            nutrition conversations, colonoscopy preparation, treatment questions,
+            and living well with IBD.
+          </p>
+        </div>
+      </section>
 
-</p>
+      <section id="involved" class="cta">
+        <div>
+          <h2>Help us build a stronger IBD community.</h2>
+          <p>
+            Digestive Harmony is growing. Join as a volunteer, advocate, donor,
+            partner, or community supporter.
+          </p>
+        </div>
+        <a class="btn" href="mailto:hello@digestiveharmony.org">Contact Us</a>
+      </section>
+    </main>
 
-<div class="buttons">
-
-<a class="btn primary" href="#about">
-Learn More
-</a>
-
-<a class="btn secondary" href="#involved">
-Get Involved
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<div class="mission">
-
-<h2>Our Mission</h2>
-
-<p>
-
-Digestive Harmony is dedicated to empowering
-patients, caregivers and families through trusted
-education, meaningful community support,
-patient advocacy and research collaboration.
-
-</p>
-
-</div>
-
-</section>
-```astro
-<section id="ibd" class="services">
-
-  <div class="section-title">
-    <h2>What We Do</h2>
-    <p>
-      Digestive Harmony is committed to improving lives through education,
-      advocacy, community engagement, and research support.
-    </p>
+    <footer>
+      <div>🦋 Digestive Harmony</div>
+      <div>Advancing Hope for IBD</div>
+    </footer>
   </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">❤️</div>
-      <h3>Patient Support</h3>
-      <p>
-        Providing encouragement, guidance, and trusted information for
-        individuals and families living with IBD.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>Education</h3>
-      <p>
-        Easy-to-understand resources about Crohn's Disease,
-        Ulcerative Colitis, treatments, nutrition, and living well.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🔬</div>
-      <h3>Research</h3>
-      <p>
-        Supporting awareness of scientific discoveries and future
-        research initiatives that improve patient outcomes.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🤝</div>
-      <h3>Community</h3>
-      <p>
-        Bringing together patients, caregivers, volunteers,
-        healthcare professionals, and advocates.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<style>
-
-.services{
-    background:white;
-    padding:90px 10%;
-}
-
-.section-title{
-    text-align:center;
-    max-width:850px;
-    margin:auto;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:2.6rem;
-    color:#0E4C68;
-    margin-bottom:18px;
-}
-
-.section-title p{
-    color:#666;
-    font-size:1.1rem;
-}
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-    gap:30px;
-
-}
-
-.card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.icon{
-
-    font-size:2.8rem;
-
-    margin-bottom:20px;
-
-}
-
-.card h3{
-
-    margin-bottom:15px;
-
-    color:#0E4C68;
-
-}
-
-.card p{
-
-    color:#555;
-
-}
-
-</style>
-```
-
 </body>
-
 </html>
