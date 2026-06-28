@@ -197,6 +197,138 @@ patient advocacy and research collaboration.
 </div>
 
 </section>
+```astro
+<section id="ibd" class="services">
+
+  <div class="section-title">
+    <h2>What We Do</h2>
+    <p>
+      Digestive Harmony is committed to improving lives through education,
+      advocacy, community engagement, and research support.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">❤️</div>
+      <h3>Patient Support</h3>
+      <p>
+        Providing encouragement, guidance, and trusted information for
+        individuals and families living with IBD.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📚</div>
+      <h3>Education</h3>
+      <p>
+        Easy-to-understand resources about Crohn's Disease,
+        Ulcerative Colitis, treatments, nutrition, and living well.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔬</div>
+      <h3>Research</h3>
+      <p>
+        Supporting awareness of scientific discoveries and future
+        research initiatives that improve patient outcomes.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🤝</div>
+      <h3>Community</h3>
+      <p>
+        Bringing together patients, caregivers, volunteers,
+        healthcare professionals, and advocates.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.services{
+    background:white;
+    padding:90px 10%;
+}
+
+.section-title{
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.6rem;
+    color:#0E4C68;
+    margin-bottom:18px;
+}
+
+.section-title p{
+    color:#666;
+    font-size:1.1rem;
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.icon{
+
+    font-size:2.8rem;
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    margin-bottom:15px;
+
+    color:#0E4C68;
+
+}
+
+.card p{
+
+    color:#555;
+
+}
+
+</style>
+```
 
 </body>
 
